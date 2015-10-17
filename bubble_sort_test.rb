@@ -4,32 +4,12 @@ require 'minitest/pride'
 require_relative './bubble_sort'
 
 class BubbleSortTest < Minitest::Test
-  def test_bubblesort_class
-    sorter = SortingSuite::BubbleSort.new
-    assert_equal "SortingSuite::BubbleSort", sorter.class.to_s
-  end
-
-  def test_bubblesort_sort_accepts_1_arg
-    sorter = SortingSuite::BubbleSort.new
-    assert_equal 1, sorter.method(:sort).arity
-  end
-
   def test_bubblesort_sort_returns_array
     sorter = SortingSuite::BubbleSort.new
     numbers = []
-    assert_equal "Array", sorter.sort(numbers).class.to_s
-  end
-
-  def test_bubblesort_should_swap
-    sorter = SortingSuite::BubbleSort.new
-    numbers = [2, 1]
-    assert_equal true, sorter.should_swap?(numbers, 0)
-  end
-
-  def test_bubblesort_swap_two_elements
-    sorter = SortingSuite::BubbleSort.new
-    numbers = [2, 1]
-    assert_equal [1, 2], sorter.swap(numbers, 0)
+    assert_equal Array, sorter.sort(numbers).class
+    assert sorter.sort(numbers).is_a?(Array)
+    assert sorter.sort(numbers).kind_of?(Array)
   end
 
   def test_bubblesort_sorts_array_length_one
