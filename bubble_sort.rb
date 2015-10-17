@@ -1,21 +1,28 @@
 module SortingSuite
   # Bubble sort class uses the classic bubble sort algorithm to sort an array
   class BubbleSort
+    def should_swap?(array, index)
+      previous, current = array[index..index + 1]
+      current < previous
+    end
+
+    def swap(array, index)
+      previous, current = array[index..index + 1]
+      array[index..index + 1] = current, previous
+    end
+
     def sort(array)
       loop do
         swaps = []
-        for i in 1..array.length - 1
-          current = array[i]
-          previous = array[i - 1]
-          if current < previous
-            array[i] = previous
-            array[i - 1] = current
+        for i in 0..array.length - 2
+          if should_swap?(array, i)
+            swap(array, i)
             swaps << true
           else
             swaps << false
           end
         end
-        break if !(swaps.include?(true))
+        break unless swaps.include?(true)
       end
       array
     end

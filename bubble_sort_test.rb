@@ -20,6 +20,18 @@ class BubbleSortTest < Minitest::Test
     assert_equal "Array", sorter.sort(numbers).class.to_s
   end
 
+  def test_bubblesort_should_swap
+    sorter = SortingSuite::BubbleSort.new
+    numbers = [2, 1]
+    assert_equal true, sorter.should_swap?(numbers, 0)
+  end
+
+  def test_bubblesort_swap_two_elements
+    sorter = SortingSuite::BubbleSort.new
+    numbers = [2, 1]
+    assert_equal [1, 2], sorter.swap(numbers, 0)
+  end
+
   def test_bubblesort_sorts_array_length_one
     sorter = SortingSuite::BubbleSort.new
     numbers = [1]
