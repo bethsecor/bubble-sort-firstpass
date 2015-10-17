@@ -2,11 +2,13 @@ module SortingSuite
   # Bubble sort class uses the classic bubble sort algorithm to sort an array
   class BubbleSort
     def should_swap?(array, index)
+      # Nice destructuring assignment here
       previous, current = array[index..index + 1]
       current < previous
     end
 
     def swap(array, index)
+      # Nice destructuring assignment here as well
       previous, current = array[index..index + 1]
       array[index..index + 1] = current, previous
     end
